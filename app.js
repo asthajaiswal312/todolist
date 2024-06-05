@@ -17,44 +17,17 @@ app.get("/", (req, res) => {
     var currentDay = today.getDay()
     var day = ""
 
-    switch (currentDay) {
-        case 1:
-            day = "Monday"
-            break;
-        case 2:
-            day = "Tuesday"
-            break;
-        case 3:
-            day = "Wednesday"
-            break;
-        case 4:
-            day = "Thursday"
-            break;
-        case 5:
-            day = "Friday"
-            break;
-        case 6:
-            day = "Saturday"
-            break;
-        case 0:
-            day = "Sunday"
-            break;
-        default:
-            console.log("error")
-            break;
-    }
+    var options = {  weekday: 'long', month: 'long', day: 'numeric'};
+    var day = today.toLocaleString('en-us', options);
+
+    console.log(day);
 
     res.render('list', {kindOfDay : day})
-    // if(currentDay === 6 || currentDay === 0)
-    //     {
-    //         day = "weekday"
-    //         res.render('list', {kindOfDay : day})
-    //     }
-    //     else{
-    //         day = "weekend"
-    //         // res.send("Booo! I have to work.")
-    //         res.render('list', {kindOfDay : day})
-    // }
+})
+
+app.post("/", (req, res) => {
+    var newItem = req.body.newItem
+    console.log(newItem)
 })
 
 app.listen(port, () => {

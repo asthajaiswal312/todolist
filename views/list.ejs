@@ -6,7 +6,16 @@
     <title>Todolist</title>
 </head>
 <body>
-    <h1>It is a <%= kindOfDay %>!</h1>
-    <p>Why are you not working!</p>
+    <h1><%= kindOfDay %></h1>
+
+    <ul>
+        <li>Eat</li>
+        <li>SLeep</li>
+        <li>Repeat</li>
+    </ul>
+    <form action="/" method="post">
+        <input type="text" name="newItem" placeholder="Enter new item...">
+        <button type="submit" name="submit">Add Item</button>
+    </form>
 </body>
 </html>
